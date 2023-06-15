@@ -1,6 +1,12 @@
 const fs = require('fs');
 
-function step1(filename){
+function step1(){
+    if (process.argv.length < 3) {
+        console.log('Input filename as a command line argument.');
+        return;
+      }
+    
+    const filename = process.argv[2];
     const valueCount = {};
     const file = fs.readFileSync(filename, 'utf-8');
     const values = file.split(',');
@@ -24,7 +30,13 @@ function step1(filename){
 };
 
 
-function step2(filename){
+function step2(){
+    if (process.argv.length < 3) {
+        console.log('Input filename as a command line argument.');
+        return;
+      }
+    
+    const filename = process.argv[2];
     const valueLocation = {};
     const file = fs.readFileSync(filename, 'utf-8');
     const values = file.split(',');
@@ -49,7 +61,13 @@ function step2(filename){
 
 };
 
-function step3(filename) {
+function step3() {
+    if (process.argv.length < 3) {
+        console.log('Input filename as a command line argument.');
+        return;
+      }
+    
+    const filename = process.argv[2];
     const counts = step1(filename);
     const indices = step2(filename);
   
@@ -69,7 +87,6 @@ function step3(filename) {
 
 
 
-const filename = 'test.txt'; // Replace with the path to your text file
-const result = step3(filename);
-const jsonString = JSON.stringify(result,null,2);
-console.log(jsonString);
+//const filename = 'test.txt'; 
+const result = step3()
+console.log(result)
